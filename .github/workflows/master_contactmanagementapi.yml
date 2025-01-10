@@ -16,41 +16,40 @@ jobs:
     steps:
       # 1. Verifying code repository
       - uses: actions/checkout@v4
-
+      
+      # Listing directory structure
       - name: List directory structure
         run: |
           pwd  # Mostra o diretório atual
           ls -R  # Lista todos os arquivos e subdiretórios recursivamente
+      # Listing projects in solution    
       - name: List projects in solution
         run: |
           dotnet sln ContactManagement.sln list
+          
+      #  Checking current directory   
       - name: Check current directory
         run: |
           pwd
-
           
-
-      
       # 2. Setting .Net SDK
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-      # 3 change for the correct directory
-      - name: Change directory to ContactManagement
-        run: cd ContactManagement          
+         
           
       # 4. Restoring dependencies
       - name: Restore dependencies
-        run: dotnet restore ContactManagement.sln
+        run: dotnet restore ContactManagement/ContactManagement.sln
 
       # 4. Conpiling Solution
       - name: Build solution
-        run: dotnet build ContactManagement.sln --no-restore --configuration Release
+        run: dotnet build ContactManagement/ContactManagement.sln  --no-restore --configuration Release
 
       # 5. Running tests
       - name: Run tests
-        run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+        run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
         continue-on-error: false        
 
       #- name: Build with dotnet
