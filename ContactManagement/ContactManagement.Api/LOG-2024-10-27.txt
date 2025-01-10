@@ -1,0 +1,29 @@
+[27/10/2024 17:01:26] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:02:46] - Execution Log for Error: 0 Thre is no contact found for the informed id: 5
+[27/10/2024 17:03:53] - Execution Log for Error: 0 Contact was successfully with id: 1
+[27/10/2024 17:04:44] - Execution Log for Information: 0 The contact was successfully updated with id: 4
+[27/10/2024 17:05:02] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:05:40] - Execution Log for Error: 0 Contact was successfully with area code: 21
+[27/10/2024 17:06:03] - Execution Log for Error: 0 Contact was successfully with area code: 71
+[27/10/2024 17:06:49] - Execution Log for Information: 0 Contact was successfully created with id: 3002
+[27/10/2024 17:07:01] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:07:22] - Execution Log for Information: 0 The contact was successfully deleted with id: 3003
+[27/10/2024 17:51:56] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[27/10/2024 17:51:56] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[27/10/2024 17:51:56] - Execution Log for Information: 0 Hosting environment: Development
+[27/10/2024 17:51:56] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 1/TechChallenge/src/ContactManagement.Api
+[27/10/2024 17:52:06] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[27/10/2024 17:52:06] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:52:19] - Execution Log for Error: 0 Thre is no contact found for the informed id: 5
+[27/10/2024 17:52:30] - Execution Log for Error: 0 Contact was successfully with id: 3
+[27/10/2024 17:53:04] - Execution Log for Information: 0 Contact was successfully created with id: 3003
+[27/10/2024 17:53:16] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:53:56] - Execution Log for Information: 0 The contact was successfully updated with id: 3003
+[27/10/2024 17:54:03] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:54:17] - Execution Log for Error: 0 No contact found for id: 5
+[27/10/2024 17:55:10] - Execution Log for Information: 0 The contact was successfully deleted with id: 3003
+[27/10/2024 17:55:14] - Execution Log for Information: 0 The list of contact was successfully received
+[27/10/2024 17:55:41] - Execution Log for Error: 0 Contact was successfully with area code: 71
+[27/10/2024 17:55:48] - Execution Log for Error: 0 Contact was successfully with area code: 11
+[27/10/2024 17:55:53] - Execution Log for Error: 0 Contact was successfully with area code: 56
+[27/10/2024 17:56:32] - Execution Log for Information: 0 Application is shutting down...

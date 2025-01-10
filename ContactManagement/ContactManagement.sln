@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement.Domain", "ContactManagement.Domain\ContactManagement.Domain.csproj", "{08BA7AC0-3F41-474F-8F11-4AE09A7DEB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement.InfraStructure", "ContactManagement.InfraStructure\ContactManagement.InfraStructure.csproj", "{C6D069BE-AFC0-44DC-A13E-073AA4B786F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement.Api", "ContactManagement.Api\ContactManagement.Api.csproj", "{54353FE9-ABE3-4871-9E80-28D26395D3F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B74F7B97-9A7C-4A47-BC80-AAFCF1BC3D27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseConfiguration", "DataBaseConfiguration", "{5F116941-BCB1-41BB-BA8A-11EFC4188EBB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		dockerfile = dockerfile
+		README.md = README.md
+		scriptparacriarobanco.sql = scriptparacriarobanco.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement.Tests", "ContactManagement.Tests\ContactManagement.Tests.csproj", "{CD744AEA-69C6-4A2B-AACC-F6A970219ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement.Application", "ContactManagement.Application\ContactManagement.Application.csproj", "{C8B0770C-E0D6-4776-9E86-BFA7B8552E23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08BA7AC0-3F41-474F-8F11-4AE09A7DEB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BA7AC0-3F41-474F-8F11-4AE09A7DEB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BA7AC0-3F41-474F-8F11-4AE09A7DEB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BA7AC0-3F41-474F-8F11-4AE09A7DEB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D069BE-AFC0-44DC-A13E-073AA4B786F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D069BE-AFC0-44DC-A13E-073AA4B786F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D069BE-AFC0-44DC-A13E-073AA4B786F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D069BE-AFC0-44DC-A13E-073AA4B786F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54353FE9-ABE3-4871-9E80-28D26395D3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54353FE9-ABE3-4871-9E80-28D26395D3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54353FE9-ABE3-4871-9E80-28D26395D3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54353FE9-ABE3-4871-9E80-28D26395D3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD744AEA-69C6-4A2B-AACC-F6A970219ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD744AEA-69C6-4A2B-AACC-F6A970219ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD744AEA-69C6-4A2B-AACC-F6A970219ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD744AEA-69C6-4A2B-AACC-F6A970219ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B0770C-E0D6-4776-9E86-BFA7B8552E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B0770C-E0D6-4776-9E86-BFA7B8552E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B0770C-E0D6-4776-9E86-BFA7B8552E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B0770C-E0D6-4776-9E86-BFA7B8552E23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD744AEA-69C6-4A2B-AACC-F6A970219ACE} = {B74F7B97-9A7C-4A47-BC80-AAFCF1BC3D27}
+	EndGlobalSection
+EndGlobal

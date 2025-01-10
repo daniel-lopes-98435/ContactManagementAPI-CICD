@@ -1,0 +1,26 @@
+[10/01/2025 07:51:00] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[10/01/2025 07:51:00] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[10/01/2025 07:51:00] - Execution Log for Information: 0 Hosting environment: Development
+[10/01/2025 07:51:00] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[10/01/2025 07:52:20] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[10/01/2025 07:52:20] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 07:55:21] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 07:55:35] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 07:56:42] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 07:57:13] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 08:01:46] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 16:02:43] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[10/01/2025 16:02:43] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[10/01/2025 16:02:43] - Execution Log for Information: 0 Hosting environment: Development
+[10/01/2025 16:02:43] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[10/01/2025 16:02:50] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[10/01/2025 16:02:51] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 16:02:57] - Execution Log for Error: 0 Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.
+[10/01/2025 16:03:58] - Execution Log for Information: 0 Application is shutting down...
+[10/01/2025 16:04:21] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[10/01/2025 16:04:21] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[10/01/2025 16:04:21] - Execution Log for Information: 0 Hosting environment: Development
+[10/01/2025 16:04:21] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[10/01/2025 16:04:28] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[10/01/2025 16:04:29] - Execution Log for Information: 0 The list of contact was successfully received
+[10/01/2025 16:04:35] - Execution Log for Information: 0 Application is shutting down...

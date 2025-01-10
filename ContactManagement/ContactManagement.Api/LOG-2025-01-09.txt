@@ -1,0 +1,36 @@
+[09/01/2025 17:35:30] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:35:30] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:35:30] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:35:30] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:41:08] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:41:08] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:41:08] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:41:08] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:41:30] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:41:30] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:41:30] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:41:30] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:49:58] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:49:58] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:49:58] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:49:58] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:51:31] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:51:31] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:51:31] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:51:31] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:51:37] - Execution Log for Information: 0 Application is shutting down...
+[09/01/2025 17:52:01] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:52:01] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:52:01] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:52:01] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:57:21] - Execution Log for Information: 0 Application is shutting down...
+[09/01/2025 17:57:57] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:57:57] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:57:57] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:57:57] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:58:05] - Execution Log for Information: 0 Application is shutting down...
+[09/01/2025 17:58:17] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[09/01/2025 17:58:17] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[09/01/2025 17:58:17] - Execution Log for Information: 0 Hosting environment: Development
+[09/01/2025 17:58:17] - Execution Log for Information: 0 Content root path: /Users/lopes/TesteApi/ConctactManagement/ContactManagement.Api
+[09/01/2025 17:58:32] - Execution Log for Information: 0 Application is shutting down...
