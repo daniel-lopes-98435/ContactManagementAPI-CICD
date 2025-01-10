@@ -22,14 +22,17 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
+      # 3 change for the correct directory
+      - name: Change directory to ContactManagement
+        run: cd ContactManagement          
           
-      # 3. Restoring dependencies
+      # 4. Restoring dependencies
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ContactManagement.sln
 
       # 4. Conpiling Solution
       - name: Build solution
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build ContactManagement.sln --no-restore --configuration Release
 
       # 5. Running tests
       - name: Run tests
