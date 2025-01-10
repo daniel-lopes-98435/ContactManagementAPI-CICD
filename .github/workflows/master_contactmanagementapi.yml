@@ -16,7 +16,10 @@ jobs:
     steps:
       # 1. Verifying code repository
       - uses: actions/checkout@v4
-      
+
+      - name: Check all environment variables
+        run: printenv
+  
       # Listing directory structure
       - name: List directory structure
         run: |
@@ -51,8 +54,11 @@ jobs:
       #- name: Build with dotnet
         #run: dotnet build --configuration Release
       # 6. Creating publish
+
       - name: dotnet publish
         run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+
         
       # 7. Uploading artifact
       - name: Upload artifact for deployment job
