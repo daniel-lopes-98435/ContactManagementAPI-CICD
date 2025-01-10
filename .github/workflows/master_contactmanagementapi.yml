@@ -22,10 +22,6 @@ jobs:
         run: |
           pwd  # Mostra o diretório atual
           ls -R  # Lista todos os arquivos e subdiretórios recursivamente
-      # Listing projects in solution    
-      - name: List projects in solution
-        run: |
-          dotnet sln ContactManagement.sln list
           
       #  Checking current directory   
       - name: Check current directory
