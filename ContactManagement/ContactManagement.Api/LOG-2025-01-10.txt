@@ -24,3 +24,17 @@
 [10/01/2025 16:04:28] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
 [10/01/2025 16:04:29] - Execution Log for Information: 0 The list of contact was successfully received
 [10/01/2025 16:04:35] - Execution Log for Information: 0 Application is shutting down...
+[10/01/2025 16:37:59] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[10/01/2025 16:37:59] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[10/01/2025 16:37:59] - Execution Log for Information: 0 Hosting environment: Development
+[10/01/2025 16:37:59] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[10/01/2025 16:38:11] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[10/01/2025 16:38:11] - Execution Log for Error: 0 The ConnectionString property has not been initialized.
+[10/01/2025 16:38:59] - Execution Log for Information: 0 Application is shutting down...
+[10/01/2025 16:39:03] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[10/01/2025 16:39:03] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[10/01/2025 16:39:03] - Execution Log for Information: 0 Hosting environment: Development
+[10/01/2025 16:39:03] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[10/01/2025 16:39:19] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[10/01/2025 16:39:19] - Execution Log for Information: 0 The list of contact was successfully received
+[10/01/2025 16:39:22] - Execution Log for Information: 0 Application is shutting down...
