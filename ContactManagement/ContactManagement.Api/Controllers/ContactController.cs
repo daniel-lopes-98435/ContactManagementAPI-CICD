@@ -28,7 +28,7 @@ public class ContactController : ControllerBase
     }
 
     /// <summary>
-    /// Retrieves all contacts.
+    /// Retrieves all contacts teste.
     /// </summary>
     /// <returns>A list of all contacts.</returns>
     [HttpGet]
