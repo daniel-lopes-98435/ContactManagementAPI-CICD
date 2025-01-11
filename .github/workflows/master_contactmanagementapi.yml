@@ -25,15 +25,6 @@ jobs:
         run: |
           pwd  # Mostra o diretório atual
           ls -R  # Lista todos os arquivos e subdiretórios recursivamente
-
-      - name: Verify output
-        run: |
-          ls -la /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
-          if [ -z "$(ls -A /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out)" ]; then
-            echo "Output folder is empty!"
-            exit 1
-          fi
-
           
       #  Checking current directory   
       - name: Check current directory
@@ -69,7 +60,13 @@ jobs:
         #run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{github.workspace}}/out
         run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
 
-        
+      - name: Verify output
+        run: |
+          ls -la /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
+          if [ -z "$(ls -A /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out)" ]; then
+            echo "Output folder is empty!"
+            exit 1
+          fi        
       # 7. Uploading artifact
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
