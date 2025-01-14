@@ -1,0 +1,5 @@
+[11/01/2025 20:18:58] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[11/01/2025 20:18:58] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[11/01/2025 20:18:58] - Execution Log for Information: 0 Hosting environment: Development
+[11/01/2025 20:18:58] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[11/01/2025 20:19:53] - Execution Log for Information: 0 Application is shutting down...
