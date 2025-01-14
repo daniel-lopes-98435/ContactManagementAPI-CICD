@@ -17,9 +17,9 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-          
-     # - name: Restore dependencies
-     #   run: dotnet restore ContactManagement/ContactManagement.sln          
+
+      - name: Restore dependencies
+        run: dotnet restore ContactManagement/ContactManagement.sln  # Adicionado restore aqui
 
       - name: Build with dotnet
         run: dotnet build ContactManagement/ContactManagement.sln --no-restore --configuration Release
@@ -29,7 +29,7 @@ jobs:
         continue-on-error: false              
 
       - name: dotnet publish
-        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.DOTNET_ROOT}}\myapp"
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
