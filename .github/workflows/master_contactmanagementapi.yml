@@ -14,24 +14,65 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Verifying code repository
       - uses: actions/checkout@v4
 
+      - name: Check all environment variables
+        run: printenv
+  
+      # Listing directory structure
+      - name: List directory structure
+        run: |
+          pwd  # Mostra o diretório atual
+          ls -R  # Lista todos os arquivos e subdiretórios recursivamente
+          
+      #  Checking current directory   
+      - name: Check current directory
+        run: |
+          pwd
+          
+      # 2. Setting .Net SDK
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
+         
+          
+      # 4. Restoring dependencies
+      - name: Restore dependencies
+        run: dotnet restore ContactManagement/ContactManagement.sln
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # 4. Conpiling Solution
+      - name: Build solution
+        run: dotnet build ContactManagement/ContactManagement.sln  --no-restore --configuration Release
+
+      # 5. Running tests
+      - name: Run tests
+        run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+        continue-on-error: false        
+
+      #- name: Build with dotnet
+        #run: dotnet build --configuration Release
+      # 6. Creating publish
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        #run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        #run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{github.workspace}}/out
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
 
+      - name: Verify output
+        run: |
+          ls -la /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
+          if [ -z "$(ls -A /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out)" ]; then
+            echo "Output folder is empty!"
+            exit 1
+          fi        
+      # 7. Uploading artifact
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{github.workspace}}/out
 
   deploy:
     runs-on: ubuntu-latest
