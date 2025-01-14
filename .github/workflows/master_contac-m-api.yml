@@ -30,7 +30,8 @@ jobs:
 
       - name: dotnet publish
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
-        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
+        
 
       #- name: List files in publish directory
       #  run: dir ${{env.DOTNET_ROOT}}/myapp  # Verifica os arquivos na pasta de publicação para garantir que o pacote foi gerado corretamente
@@ -39,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{env.GITHUB_WORKSPACE}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -69,4 +70,4 @@ jobs:
         with:
           app-name: 'contac-m-api'  # Nome do seu App Service
           slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
-          package: .
+          package: "${{env.GITHUB_WORKSPACE}}/myapp"
