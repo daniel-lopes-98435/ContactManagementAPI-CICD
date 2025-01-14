@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - contactm-api
+name: Build and deploy ASP.Net Core app to Azure Web App - contactmanagementapi
 
 on:
   push:
@@ -14,24 +14,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Verifying code repository
       - uses: actions/checkout@v4
 
+      - name: Check all environment variables
+        run: printenv
+  
+      # Listing directory structure
+      - name: List directory structure
+        run: |
+          pwd  # Mostra o diretório atual
+          ls -R  # Lista todos os arquivos e subdiretórios recursivamente
+          
+      #  Checking current directory   
+      - name: Check current directory
+        run: |
+          pwd
+          
+      # 2. Setting .Net SDK
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
+         
+          
+      # 4. Restoring dependencies
+      - name: Restore dependencies
+        run: dotnet restore ContactManagement/ContactManagement.sln
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+      # 4. Conpiling Solution
+      - name: Build solution
+        run: dotnet build ContactManagement/ContactManagement.sln  --
 
   deploy:
     runs-on: ubuntu-latest
