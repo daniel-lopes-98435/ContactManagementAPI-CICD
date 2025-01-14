@@ -11,26 +11,33 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # 1. Checkout do código
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
+      # 2. Configurar o SDK do .NET 8
+      - name: Set up .NET 8.0
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
 
+      # 3. Restaurar as dependências do projeto
       - name: Restore dependencies
-        run: dotnet restore ContactManagement/ContactManagement.sln  # Adicionado restore aqui
+        run: dotnet restore ContactManagement/ContactManagement.sln
 
+      # 4. Build do projeto
       - name: Build with dotnet
         run: dotnet build ContactManagement/ContactManagement.sln --no-restore --configuration Release
 
+      # 5. Executar os testes
       - name: Run tests
         run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
         continue-on-error: false              
 
+      # 6. Publicar a aplicação
       - name: dotnet publish
         run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
+      # 7. Fazer upload do artefato para o job de deploy
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -44,14 +51,16 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write  # Necessário para solicitar o JWT
 
     steps:
+      # 1. Baixar o artefato do job de build
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+
+      # 2. Login no Azure
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -59,10 +68,12 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_431B6E203E924225B7D864DA609B235B }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_279993A0F6734200BFAD4E8BE21B79AC }}
 
+      # 3. Deploy no Azure Web App
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'contac-m-api'
-          slot-name: 'Production'
-          package: .
+          app-name: 'contac-m-api'  # Nome do seu App Service
+          slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
+          package: ${{env.DOTNET_ROOT}}/myapp  # Diretório onde o artefato foi publicado
+
