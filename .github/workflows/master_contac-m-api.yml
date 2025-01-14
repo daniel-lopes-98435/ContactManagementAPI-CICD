@@ -13,11 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
+     # - name: Set up .NET Core
+     #   uses: actions/setup-dotnet@v4
+     #   with:
+     #     dotnet-version: '8.x'
 
       - name: List environment variables
         run: printenv
+        
+      - name: List files in publish directory
+        run: dir ${{env.GITHUB_WORKSPACE}}/myapp
+       
          
