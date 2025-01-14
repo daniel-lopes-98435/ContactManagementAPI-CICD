@@ -69,4 +69,4 @@ jobs:
         with:
           app-name: 'contac-m-api'  # Nome do seu App Service
           slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
-          package: './myapp'  # Caminho relativo para o diretório onde o artefato foi publicado
+          package: .
