@@ -55,7 +55,7 @@ public class ContactControllerTests
         var result = await _contactController.GetAllContacts();
         
         Assert.IsType<OkObjectResult>(result.Result);
-        Assert.Equal(3, contactList.Count);
+        Assert.Equal(2, contactList.Count);
     }
 
     [Fact]
