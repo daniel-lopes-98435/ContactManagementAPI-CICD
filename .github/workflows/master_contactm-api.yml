@@ -1,3 +1,4 @@
+*** Workflow funcionando
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
@@ -44,7 +45,36 @@ jobs:
 
       # 4. Conpiling Solution
       - name: Build solution
-        run: dotnet build ContactManagement/ContactManagement.sln  --
+        run: dotnet build ContactManagement/ContactManagement.sln  --no-restore --configuration Release
+
+      # 5. Running tests
+      - name: Run tests
+        run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+        continue-on-error: false        
+
+      #- name: Build with dotnet
+        #run: dotnet build --configuration Release
+      # 6. Creating publish
+
+      - name: dotnet publish
+        #run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        #run: dotnet publish ContactManagement/ContactManagement.sln -c Release -o ${{github.workspace}}/out
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
+
+      - name: Verify output
+        run: |
+          ls -la /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out
+          if [ -z "$(ls -A /home/runner/work/ContactManagementAPI-CICD/ContactManagementAPI-CICD/out)" ]; then
+            echo "Output folder is empty!"
+            exit 1
+          fi        
+      # 7. Uploading artifact
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{github.workspace}}/out
+
 
   deploy:
     runs-on: ubuntu-latest
