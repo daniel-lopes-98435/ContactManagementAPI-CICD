@@ -1,3 +1,11 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - contac-m-api
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: windows-latest
@@ -11,22 +19,27 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore dependencies
-        run: dotnet restore ContactManagement/ContactManagement.sln
+        run: dotnet restore ContactManagement/ContactManagement.sln  # Adicionado restore aqui
 
       - name: Build with dotnet
         run: dotnet build ContactManagement/ContactManagement.sln --no-restore --configuration Release
 
       - name: Run tests
         run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+        continue-on-error: false              
 
       - name: dotnet publish
-        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
+        #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+
+      #- name: List files in publish directory
+      #  run: dir ${{env.DOTNET_ROOT}}/myapp  # Verifica os arquivos na pasta de publicação para garantir que o pacote foi gerado corretamente
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.GITHUB_WORKSPACE}}/myapp
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -35,7 +48,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write
+      id-token: write #This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -56,4 +69,4 @@ jobs:
         with:
           app-name: 'contac-m-api'  # Nome do seu App Service
           slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
-          package: ${{env.GITHUB_WORKSPACE}}/myapp  # Caminho correto para o pacote gerado
+          package: './myapp'  # Caminho relativo para o diretório onde o artefato foi publicado
