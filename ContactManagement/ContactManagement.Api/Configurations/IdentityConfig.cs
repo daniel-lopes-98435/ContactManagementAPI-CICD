@@ -8,8 +8,8 @@ public static class IdentityConfig
     public static IServiceCollection AddIndentity(this IServiceCollection services, IConfiguration configuration)
     {
         //var key = Encoding.ASCII.GetBytes(configuration.GetValue<string>("SecretJWT"));
-        var secretKey = "MAMAEMAMAEDADAALINEMASDGFDFSDFSDFSDFDSFDSFSDFSDFSJHHDHFHFAWSEDE";
-        var key = Encoding.ASCII.GetBytes(secretKey);
+        var secretKey2 = "MAMAEMAMAEDADAALINEMASDGFDFSDFSDFSDFDSFDSFSDFSDFSJHHDHFHFAWSEDE";
+        var key = Encoding.ASCII.GetBytes(secretKey2);
 
         services.AddAuthentication(x =>
         {

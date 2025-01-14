@@ -9,3 +9,14 @@
 [14/01/2025 10:41:04] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
 [14/01/2025 10:41:04] - Execution Log for Information: 0 Hosting environment: Development
 [14/01/2025 10:41:04] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[14/01/2025 11:35:30] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[14/01/2025 11:35:30] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[14/01/2025 11:35:30] - Execution Log for Information: 0 Hosting environment: Development
+[14/01/2025 11:35:30] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
+[14/01/2025 11:35:50] - Execution Log for Warning: FailedToDeterminePort Failed to determine the https port for redirect.
+[14/01/2025 11:35:50] - Execution Log for Error: 0 The ConnectionString property has not been initialized.
+[14/01/2025 11:36:09] - Execution Log for Information: 0 Application is shutting down...
+[14/01/2025 11:36:14] - Execution Log for Information: ListeningOnAddress Now listening on: http://localhost:5232
+[14/01/2025 11:36:14] - Execution Log for Information: 0 Application started. Press Ctrl+C to shut down.
+[14/01/2025 11:36:14] - Execution Log for Information: 0 Hosting environment: Development
+[14/01/2025 11:36:14] - Execution Log for Information: 0 Content root path: /Users/lopes/FIAP/Fase 2/ContactManagementAPI-CICD/ContactManagement/ContactManagement.Api
