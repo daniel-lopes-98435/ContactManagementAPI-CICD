@@ -6,7 +6,7 @@ var configuration = builder.Configuration;
 
 builder.Services
     .AddApiConfiguration(configuration)
-    .AddIndentity(configuration)
+    //.AddIndentity(configuration)
     .ResolveDependencies(configuration)
     .AddSwaggerConfig();
 
