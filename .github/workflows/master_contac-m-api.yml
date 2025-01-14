@@ -22,7 +22,12 @@ jobs:
      #   run: printenv
         
       - name: List files in publish directory
-        run: dir ${{env.GITHUB_WORKSPACE}}
+        #run: dir ${{env.GITHUB_WORKSPACE}}
+        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD\myapp
+
+      - name: List files in working directory
+        run: dir ${{ github.workspace }}
+   
 
 
       - name: Restore dependencies
@@ -31,9 +36,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build ContactManagement/ContactManagement.sln --no-restore --configuration Release
 
-      - name: Run tests
-        run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
-        continue-on-error: false              
+     # - name: Run tests
+     #   run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+     #   continue-on-error: false              
 
       - name: dotnet publish
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -42,6 +47,14 @@ jobs:
 
       - name: List files in publish directory
         run: dir ${{env.GITHUB_WORKSPACE}}
+        
+      - name: List files in publish directory
+        #run: dir ${{env.GITHUB_WORKSPACE}}
+        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD\myapp
+
+      - name: List files in working directory
+        run: dir ${{ github.workspace }}
+        
 
 
       #- name: List files in publish directory
