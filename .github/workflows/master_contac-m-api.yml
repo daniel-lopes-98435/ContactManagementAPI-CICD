@@ -43,8 +43,13 @@ jobs:
       - name: dotnet publish
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
-        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
+        #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{ github.workspace }}/myapp"
 
+
+      - name: List files in publish directory
+        run: dir "${{ github.workspace }}/myapp"
+        
       - name: List files in publish directory
         run: dir ${{env.GITHUB_WORKSPACE}}
         
