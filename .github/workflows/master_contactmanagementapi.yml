@@ -1,1 +1,79 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - contac-m-api
 
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ContactManagement/ContactManagement.sln  # Adicionado restore aqui
+
+      - name: Build with dotnet
+        run: dotnet build ContactManagement/ContactManagement.sln --no-restore --configuration Release
+
+      - name: Run tests
+        run: dotnet test ContactManagement/ContactManagement.sln --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+        continue-on-error: false   
+
+      - name: List files in publish directory
+        run: dir "${{ github.workspace }}"
+
+
+      - name: dotnet publish
+        #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{ github.workspace }}/myapp"
+
+        
+
+      #- name: List files in publish directory
+      #  run: dir ${{env.DOTNET_ROOT}}/myapp  # Verifica os arquivos na pasta de publicação para garantir que o pacote foi gerado corretamente
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{env.GITHUB_WORKSPACE}}/myapp
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8EFB2CF4E69F4BBD962F4CBB1D4DF6B6 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_431B6E203E924225B7D864DA609B235B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_279993A0F6734200BFAD4E8BE21B79AC }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'contac-m-api'  # Nome do seu App Service
+          slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
+          package: "${{env.GITHUB_WORKSPACE}}/myapp"
