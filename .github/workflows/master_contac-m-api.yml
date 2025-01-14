@@ -35,7 +35,9 @@ jobs:
 
       # 6. Publicar a aplicação
       - name: dotnet publish
-        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+
 
       # 7. Fazer upload do artefato para o job de deploy
       - name: Upload artifact for deployment job
