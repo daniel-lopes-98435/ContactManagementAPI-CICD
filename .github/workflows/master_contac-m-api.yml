@@ -22,6 +22,6 @@ jobs:
         run: printenv
         
       - name: List files in publish directory
-        run: dir ${{env.GITHUB_WORKSPACE}}/myapp
+        run: dir ${{env.GITHUB_WORKSPACE}}
        
          
