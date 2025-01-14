@@ -23,7 +23,7 @@ jobs:
         
       - name: List files in publish directory
         #run: dir ${{env.GITHUB_WORKSPACE}}
-        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD\myapp
+        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
 
       - name: List files in working directory
         run: dir ${{ github.workspace }}
@@ -50,7 +50,7 @@ jobs:
         
       - name: List files in publish directory
         #run: dir ${{env.GITHUB_WORKSPACE}}
-        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD\myapp
+        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
 
       - name: List files in working directory
         run: dir ${{ github.workspace }}
