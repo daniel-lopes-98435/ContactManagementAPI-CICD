@@ -11,12 +11,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Dowload repository code
       - uses: actions/checkout@v4
 
-     # - name: Set up .NET Core
-     #   uses: actions/setup-dotnet@v4
-     #   with:
-     #     dotnet-version: '8.x'
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
 
      # - name: List environment variables
      #   run: printenv
@@ -70,6 +71,9 @@ jobs:
         shell: pwsh
         run: |
           Compress-Archive -Path "${{ github.workspace }}/myapp/*" -DestinationPath "${{ github.workspace }}/.net-app.zip"
+
+      - name: Verify deployment package published file
+        run: dir "${{ github.workspace }}/myapp"
 
 
       - name: Upload artifact for deployment job
