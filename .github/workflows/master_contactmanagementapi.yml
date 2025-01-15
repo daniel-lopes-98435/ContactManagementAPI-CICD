@@ -85,5 +85,7 @@ jobs:
           app-name: 'contac-m-api'  # Nome do seu App Service
           slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
           #package: "${{ github.workspace }}/myapp"
-          package: "${{ runner.workspace }}\\myapp"
+          #package: "${{ runner.workspace }}\\myapp"
+          package: "D:/a/ContactManagementAPI-CICD/ContactManagementAPI-CICD/myapp"
+
 
