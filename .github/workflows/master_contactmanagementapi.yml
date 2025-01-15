@@ -37,24 +37,21 @@ jobs:
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
         run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{ github.workspace }}/myapp"
 
-      - name: Create deployment package
-        shell: pwsh
-        run: |
-          Compress-Archive -Path "${{ github.workspace }}/myapp/*" -DestinationPath "${{ github.workspace }}/.net-app.zip"
+      #- name: Create deployment package
+      #  shell: pwsh
+      #  run: |
+      #    Compress-Archive -Path "${{ github.workspace }}/myapp/*" -DestinationPath "${{ github.workspace }}/.net-app.zip"
        
       - name: List files in publish directory
         run: dir "${{ github.workspace }}/myapp/"
       #- name: List files in publish directory
       #  run: dir ${{env.DOTNET_ROOT}}/myapp  # Verifica os arquivos na pasta de publicação para garantir que o pacote foi gerado corretamente
 
-      - name: Verify published files
-        run: dir "${{ github.workspace }}/myapp"
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{env.GITHUB_WORKSPACE}}/myapp
+      #- name: Upload artifact for deployment job
+      #  uses: actions/upload-artifact@v4
+      #  with:
+      #    name: .net-app
+      #    path: ${{env.GITHUB_WORKSPACE}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -66,10 +63,10 @@ jobs:
       id-token: write #This is required for requesting the JWT
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
+      #- name: Download artifact from build job
+      #  uses: actions/download-artifact@v4
+      #  with:
+      #    name: .net-app
 
       - name: Login to Azure
         uses: azure/login@v2
