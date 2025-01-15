@@ -65,7 +65,10 @@ jobs:
 
       - name: Verify published files
         run: dir "${{ github.workspace }}/myapp"
-     
+
+      - name: Create deployment package
+        working-directory: ${{ github.workspace }}/myapp
+        run: zip -r ../.net-app.zip . 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
