@@ -67,8 +67,10 @@ jobs:
         run: dir "${{ github.workspace }}/myapp"
 
       - name: Create deployment package
-        working-directory: ${{ github.workspace }}/myapp
-        run: zip -r ../.net-app.zip . 
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "${{ github.workspace }}/myapp/*" -DestinationPath "${{ github.workspace }}/.net-app.zip"
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
