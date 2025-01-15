@@ -21,15 +21,13 @@ jobs:
      # - name: List environment variables
      #   run: printenv
         
-      - name: List files in publish directory
-        #run: dir ${{env.GITHUB_WORKSPACE}}
-        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
+      #- name: List files in publish directory
+      #  #run: dir ${{env.GITHUB_WORKSPACE}}
+      #  run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
 
-      - name: List files in working directory
-        run: dir ${{ github.workspace }}
+      #- name: List files in working directory
+      #  run: dir ${{ github.workspace }}
    
-
-
       - name: Restore dependencies
         run: dotnet restore ContactManagement/ContactManagement.sln  # Adicionado restore aqui
 
@@ -50,12 +48,12 @@ jobs:
       - name: List files in publish directory
         run: dir "${{ github.workspace }}/myapp"
         
-      - name: List files in publish directory
-        run: dir ${{env.GITHUB_WORKSPACE}}
+      #- name: List files in publish directory
+      #  run: dir ${{env.GITHUB_WORKSPACE}}
         
-      - name: List files in publish directory
-        #run: dir ${{env.GITHUB_WORKSPACE}}
-        run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
+      #- name: List files in publish directory
+      #  #run: dir ${{env.GITHUB_WORKSPACE}}
+      #  run: dir D:\a\ContactManagementAPI-CICD\ContactManagementAPI-CICD
 
       - name: List files in working directory
         run: dir ${{ github.workspace }}
@@ -97,6 +95,10 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8EFB2CF4E69F4BBD962F4CBB1D4DF6B6 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_431B6E203E924225B7D864DA609B235B }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_279993A0F6734200BFAD4E8BE21B79AC }}
+          
+      - name: List files in workspace
+        run: ls -R ${{ github.workspace }}
+          
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -104,5 +106,6 @@ jobs:
         with:
           app-name: 'contac-m-api'  # Nome do seu App Service
           slot-name: 'Production'   # Nome do slot (geralmente 'Production' se for o slot padrão)
-          package: "${{env.GITHUB_WORKSPACE}}/myapp"       
+          #package: "${{env.GITHUB_WORKSPACE}}/myapp"    
+          package: ${{ github.workspace }}/.net-app.zip
          
