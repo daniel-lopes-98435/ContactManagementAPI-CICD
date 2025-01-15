@@ -1,0 +1,62 @@
+name: .NET Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ContactManagement/ContactManagement.sln
+
+      - name: Build project
+        run: dotnet build ContactManagement/ContactManagement.sln --configuration Release --no-restore
+
+      - name: Publish project
+        run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o ${{env.GITHUB_WORKSPACE}}/myapp
+
+      - name: Upload published artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapp
+          path: ${{env.GITHUB_WORKSPACE}}/myapp
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: Production
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download published artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: myapp
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'contac-m-api'  # Nome do App Service no Azure
+          slot-name: 'Production'   # Nome do slot
+          package: ${{env.GITHUB_WORKSPACE}}/myapp  # Caminho para o diretório de publicação
