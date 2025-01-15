@@ -37,8 +37,13 @@ jobs:
         #run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{env.GITHUB_WORKSPACE}}/myapp"
         run: dotnet publish ContactManagement/ContactManagement.Api/ContactManagement.Api.csproj -c Release -o "${{ github.workspace }}/myapp"
 
-        
-
+      - name: Create deployment package
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "${{ github.workspace }}/myapp/*" -DestinationPath "${{ github.workspace }}/.net-app.zip"
+       
+      - name: List files in publish directory
+        run: dir "${{ github.workspace }}/myapp/"
       #- name: List files in publish directory
       #  run: dir ${{env.DOTNET_ROOT}}/myapp  # Verifica os arquivos na pasta de publicação para garantir que o pacote foi gerado corretamente
 
